@@ -51,16 +51,11 @@ function App() {
     return currentLevel;
   }
 
-  const setChallengeComplete = (_challengeGroupIndex, _challengeIndex) => {
+  const updateChallengeList = (_challengeGroupIndex, _challengeIndex) => {
     setChallengeList([...challengeList].map((challengeGroup, challengeGroupIndex) => {
       if (challengeGroupIndex === _challengeGroupIndex) {
         const { title, challenges } = challengeGroup;
-        const updatedChallenges = [...challenges].map((challenge, challengeIndex) => {
-          if (challengeIndex === _challengeIndex) {
-            challenge.completed = !challenge.completed
-          }
-          return challenge;
-        });
+        const updatedChallenges = updateChallengeByIndex(challenges, _challengeIndex)
         return {
           title,
           challenges: updatedChallenges
@@ -68,6 +63,15 @@ function App() {
       }
       return challengeGroup
     }));
+  }
+
+  const updateChallengeByIndex = (challenges, _challengeIndex) => {
+    return [...challenges].map((challenge, challengeIndex) => {
+      if (challengeIndex === _challengeIndex) {
+        challenge.completed = !challenge.completed
+      }
+      return challenge;
+    });
   }
 
   return (
@@ -99,7 +103,7 @@ function App() {
                     pageNumber={pageNumber}
                     name={name}
                     points={points}
-                    setChallengeComplete={setChallengeComplete}
+                    updateChallengeList={updateChallengeList}
                   />
                 ))
                 }

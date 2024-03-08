@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default ({ challengeGroupIndex, challengeIndex, completed, pageNumber, name, points, setChallengeComplete }) => {
+export default ({ challengeGroupIndex, challengeIndex, completed, pageNumber, name, points, updateChallengeList }) => {
   const formattedPageNumber = pageNumber > 0 ? pageNumber : '';
   return (
     <div
       className='challenge'
-      onClick={() => setChallengeComplete(challengeGroupIndex, challengeIndex)}
+      onClick={() => updateChallengeList(challengeGroupIndex, challengeIndex)}
     >
       <input className='checkbox' type='checkbox' checked={completed} onChange={() => {}}></input>
       <span>{formattedPageNumber}</span>
