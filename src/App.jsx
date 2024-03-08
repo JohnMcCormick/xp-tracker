@@ -3,6 +3,7 @@ import levelList from './levelList'
 import './App.css'
 
 import Level from './Level';
+import ResetButton from './ResetButton';
 
 function App() {
   const [levels, setLevels] = useState([])
@@ -38,7 +39,7 @@ function App() {
     let remainingXP = getTotalXP();
     let nextLevel = 200;
     let currentLevel = 1;
-    
+
     while (remainingXP >= nextLevel) {
       remainingXP -= nextLevel;
       nextLevel += 200;
@@ -76,14 +77,10 @@ function App() {
         ))}
       </div>
       <div>
-        <button onClick={() => {
-          setLevels(levelList.map(level => ({
-            ...level,
-            completed: false
-          })));
-        }}>
-          Reset
-        </button>
+        <ResetButton
+          levelList={levelList}
+          setLevels={setLevels}
+        />
       </div>
     </div>
   )

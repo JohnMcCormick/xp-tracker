@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Level({ index, completed, pageNumber, name, points, setLevelComplete }) {
+export default ({ index, completed, pageNumber, name, points, setLevelComplete }) => {
   const formattedPageNumber = pageNumber > 0 ? pageNumber : '';
   return (
     <div
@@ -11,5 +11,3 @@ function Level({ index, completed, pageNumber, name, points, setLevelComplete })
     </div>
   )
 }
-
-export default Level
