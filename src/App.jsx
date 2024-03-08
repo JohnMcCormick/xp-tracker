@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react'
 import challengeData from './challengeData'
 import './App.css'
 
-import Challenge from './Challenge';
 import ChallengeGroupTitle from './ChallengeGroupTitle';
 import ChallengeGroupHeader from './ChallengeGroupHeader';
 import ResetButton from './ResetButton';
 import Summary from './Summary';
+import Challenges from './Challenges';
 
 function App() {
   const [challengeList, setChallengeList] = useState([])
@@ -87,31 +87,21 @@ function App() {
         {challengeList?.map(({ title, challenges }, challengeGroupIndex) => {
           return challenges && (
             <div key={challengeGroupIndex}>
-              <ChallengeGroupTitle title={title} />
+              <ChallengeGroupTitle
+                title={title}
+              />
               <ChallengeGroupHeader />
-              <div className='challenges'>
-                {challenges.map(({ completed, pageNumber, name, points }, challengeIndex) => (
-                  <Challenge
-                    key={challengeIndex}
-                    challengeGroupIndex={challengeGroupIndex}
-                    challengeIndex={challengeIndex}
-                    completed={completed}
-                    pageNumber={pageNumber}
-                    name={name}
-                    points={points}
-                    updateChallengeList={updateChallengeList}
-                  />
-                ))
-                }
-              </div>
+              <Challenges
+                challengeGroupIndex={challengeGroupIndex}
+                updateChallengeList={updateChallengeList}
+                challenges={challenges}
+              />
             </div>
           )
         })}
-        <div className='reset-button-wrapper'>
-          <ResetButton
-            resetChallengeList={resetChallengeList}
-          />
-        </div>
+        <ResetButton
+          resetChallengeList={resetChallengeList}
+        />
       </div>
     </div>
   )
