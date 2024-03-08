@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react'
-import jsonLevels from './levels'
+import levelList from './levelList'
 import './App.css'
 
+import Level from './Level';
 
 function App() {
   const [levels, setLevels] = useState([])
 
   useEffect(() => {
-    const storedLevels = (localStorage.getItem("levels"))
+    const storedLevels = localStorage.getItem("levels")
 
     if (storedLevels === null) {
-      setLevels(jsonLevels.map(level => ({
+      setLevels(levelList.map(level => ({
         ...level,
         completed: false
       })));
@@ -22,10 +23,16 @@ function App() {
   useEffect(() => {
     if (levels.length > 0) {
       localStorage.setItem("levels", JSON.stringify(levels));
-      console.log(levels)
     }
   }, [levels])
 
+  const getTotalXP = () => {
+    let total = 0;
+    levels.forEach(({ completed, points }) => {
+      if (completed === true) total += points;
+    })
+    return total;
+  }
 
   const setLevelComplete = (index) => {
     setLevels(levels.map((level, i) => {
@@ -36,29 +43,22 @@ function App() {
     }))
   }
 
-  const getTotalXP = () => {
-    let total = 0;
-    levels.forEach(level => {
-      if (level.completed === true) total += level.points;
-    })
-    return total;
-  }
-
   return (
     <div className="wrapper">
       <div>
         Total XP: {getTotalXP()}
       </div>
       <div className='levels'>
-        {levels.map(({ completed, pageNumber, name, points }, i) => (<>
-          <div
-            key={i}
-            className={`level ${completed ? 'strikethrough' : ''}`}
-            onClick={() => setLevelComplete(i)}
-          >
-            {pageNumber} {name} {points}
-          </div>
-        </>))}
+        {levels.map(({ completed, pageNumber, name, points }, index) => (
+          <Level
+            key={index}
+            completed={completed}
+            pageNumber={pageNumber}
+            name={name}
+            points={points}
+            setLevelComplete={setLevelComplete}
+          />
+        ))}
       </div>
     </div>
   )
