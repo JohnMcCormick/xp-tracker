@@ -77,19 +77,18 @@ function App() {
 
   return (
     <div className="wrapper">
+      <h1 className='main-title'>The C# Player's Guide XP Tracker</h1>
       <Summary
         getTotalXP={getTotalXP}
         getCurrentLevel={getCurrentLevel}
       />
-      <div>
-        <ChallengeList 
-          challengeList={challengeList} 
-          updateChallengeList={updateChallengeList}
-        />
-        <ResetButton
-          resetChallengeList={resetChallengeList}
-        />
-      </div>
+      <ChallengeList
+        challengeList={challengeList}
+        updateChallengeList={updateChallengeList}
+      />
+      <ResetButton
+        resetChallengeList={resetChallengeList}
+      />
     </div>
   )
 }
