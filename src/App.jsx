@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
-import challengeData from './challengeData'
+import challengeData from './data/challengeData'
 import './App.css'
 
-import Summary from './Summary';
-import ChallengeList from './ChallengeList';
-import ResetButton from './ResetButton';
+import Summary from './components/Summary';
+import ChallengeList from './components/ChallengeList';
+import ResetButton from './components/ResetButton';
 
 function App() {
   const [challengeList, setChallengeList] = useState([])
