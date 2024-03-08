@@ -60,10 +60,18 @@ function App() {
   return (
     <div className="wrapper">
       <div>
-        <div>Total XP: {getTotalXP()}</div>
-        <div>Current Level: {getCurrentLevel()}</div>
+        <div className='summary'>
+          <div>Total XP: {getTotalXP()}</div>
+          <div>Current Level: {getCurrentLevel()}</div>
+        </div>
       </div>
       <div className='levels'>
+        <div className='level-title'>
+          <span></span>
+          <span>Page</span>
+          <span>Name</span>
+          <span>XP</span>
+        </div>
         {levels.map(({ completed, pageNumber, name, points }, index) => (
           <Level
             key={index}

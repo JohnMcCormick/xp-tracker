@@ -7,9 +7,30 @@
 
 .wrapper {
   display: flex;
+  min-height: 100%;
 } 
 
-.level {
+.summary {
+  padding: 1vh;
+  background-color: #1a1a1a;
+  border-radius: 1vh;
+  position: relative;
+}
+
+.level-title {
+  font-weight: bold;
+}
+
+.level, .level-title {
+  cursor: pointer;
+  display: grid;
+  text-align: left;
+  grid-template-columns: .5fr 1fr 6fr 1fr;
+  gap: 1vw;
+  margin: 0 3vw;
+}
+
+.checkbox {
   cursor: pointer;
 }
 

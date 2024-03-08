@@ -114,11 +114,11 @@ export default (
         { pageNumber: 441, name: "Knowledge Check - Visual Studio", points: 25 },
         { pageNumber: 446, name: "Knowledge Check - Compiler Errors", points: 25 },
         { pageNumber: 451, name: "Knowledge Check - Debugging", points: 25 },
-        { pageNumber: 0, name: "C#11 Expansion - Program Making Program", points: 100 },
-        { pageNumber: 0, name: "C#11 Expansion - The Map", points: 150 },
-        { pageNumber: 0, name: "C#11 Expansion - Premixed Potions", points: 100 },
-        { pageNumber: 0, name: "C#11 Expansion - Blast Damage", points: 100 },
-        { pageNumber: 0, name: "C#12 Expansion - Hunted", points: 100 },
-        { pageNumber: 0, name: "C#12 Expansion - A Night in the Wastelands", points: 100 },
+        { pageNumber: 4, name: "C#11 Expansion - Program Making Program", points: 100 },
+        { pageNumber: 8, name: "C#11 Expansion - The Map", points: 150 },
+        { pageNumber: 13, name: "C#11 Expansion - Premixed Potions", points: 100 },
+        { pageNumber: 16, name: "C#11 Expansion - Blast Damage", points: 100 },
+        { pageNumber: 4, name: "C#12 Expansion - Hunted", points: 100 },
+        { pageNumber: 5, name: "C#12 Expansion - A Night in the Wastelands", points: 100 },
     ]
 )
