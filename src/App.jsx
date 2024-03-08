@@ -3,6 +3,8 @@ import challengeData from './challengeData'
 import './App.css'
 
 import Challenge from './Challenge';
+import ChallengeGroupTitle from './ChallengeGroupTitle';
+import ChallengeGroupHeader from './ChallengeGroupHeader';
 import ResetButton from './ResetButton';
 import Summary from './Summary';
 
@@ -85,13 +87,8 @@ function App() {
         {challengeList?.map(({ title, challenges }, challengeGroupIndex) => {
           return challenges && (
             <div key={challengeGroupIndex}>
-              <div className='challenge-group-title'>{title}</div>
-              <div className='challenge-group-header'>
-                <span></span>
-                <span>Page</span>
-                <span>Name</span>
-                <span>XP</span>
-              </div>
+              <ChallengeGroupTitle title={title} />
+              <ChallengeGroupHeader />
               <div className='challenges'>
                 {challenges.map(({ completed, pageNumber, name, points }, challengeIndex) => (
                   <Challenge
