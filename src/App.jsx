@@ -2,11 +2,9 @@ import { useEffect, useState } from 'react'
 import challengeData from './challengeData'
 import './App.css'
 
-import ChallengeGroupTitle from './ChallengeGroupTitle';
-import ChallengeGroupHeader from './ChallengeGroupHeader';
-import ResetButton from './ResetButton';
 import Summary from './Summary';
-import Challenges from './Challenges';
+import ChallengeList from './ChallengeList';
+import ResetButton from './ResetButton';
 
 function App() {
   const [challengeList, setChallengeList] = useState([])
@@ -84,21 +82,10 @@ function App() {
         getCurrentLevel={getCurrentLevel}
       />
       <div>
-        {challengeList?.map(({ title, challenges }, challengeGroupIndex) => {
-          return challenges && (
-            <div key={challengeGroupIndex}>
-              <ChallengeGroupTitle
-                title={title}
-              />
-              <ChallengeGroupHeader />
-              <Challenges
-                challengeGroupIndex={challengeGroupIndex}
-                updateChallengeList={updateChallengeList}
-                challenges={challenges}
-              />
-            </div>
-          )
-        })}
+        <ChallengeList 
+          challengeList={challengeList} 
+          updateChallengeList={updateChallengeList}
+        />
         <ResetButton
           resetChallengeList={resetChallengeList}
         />
