@@ -34,6 +34,19 @@ function App() {
     return total;
   }
 
+  const getCurrentLevel = () => {
+    let remainingXP = getTotalXP();
+    let nextLevel = 200;
+    let currentLevel = 1;
+    
+    while (remainingXP >= nextLevel) {
+      remainingXP -= nextLevel;
+      nextLevel += 200;
+      currentLevel += 1;
+    }
+    return currentLevel;
+  }
+
   const setLevelComplete = (index) => {
     setLevels(levels.map((level, i) => {
       if (i === index) {
@@ -46,12 +59,14 @@ function App() {
   return (
     <div className="wrapper">
       <div>
-        Total XP: {getTotalXP()}
+        <div>Total XP: {getTotalXP()}</div>
+        <div>Current Level: {getCurrentLevel()}</div>
       </div>
       <div className='levels'>
         {levels.map(({ completed, pageNumber, name, points }, index) => (
           <Level
             key={index}
+            index={index}
             completed={completed}
             pageNumber={pageNumber}
             name={name}
@@ -59,6 +74,16 @@ function App() {
             setLevelComplete={setLevelComplete}
           />
         ))}
+      </div>
+      <div>
+        <button onClick={() => {
+          setLevels(levelList.map(level => ({
+            ...level,
+            completed: false
+          })));
+        }}>
+          Reset
+        </button>
       </div>
     </div>
   )

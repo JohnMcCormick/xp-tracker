@@ -1,12 +1,13 @@
 import React from 'react'
 
-function Level({ completed, pageNumber, name, points, setLevelComplete }) {
+function Level({ index, completed, pageNumber, name, points, setLevelComplete }) {
+  const formattedPageNumber = pageNumber > 0 ? pageNumber : '';
   return (
     <div
       className={`level ${completed ? 'strikethrough' : ''}`}
-      onClick={() => setLevelComplete(i)}
+      onClick={() => setLevelComplete(index)}
     >
-      {pageNumber} {name} {points}
+      {formattedPageNumber} {name} {points}
     </div>
   )
 }
