@@ -4,6 +4,7 @@ import './App.css'
 
 import Challenge from './Challenge';
 import ResetButton from './ResetButton';
+import Summary from './Summary';
 
 function App() {
   const [challengeList, setChallengeList] = useState([])
@@ -76,12 +77,10 @@ function App() {
 
   return (
     <div className="wrapper">
-      <div>
-        <div className='summary'>
-          <div>Total XP: {getTotalXP()}</div>
-          <div>Current Level: {getCurrentLevel()}</div>
-        </div>
-      </div>
+      <Summary
+        getTotalXP={getTotalXP}
+        getCurrentLevel={getCurrentLevel}
+      />
       <div>
         {challengeList?.map(({ title, challenges }, challengeGroupIndex) => {
           return challenges && (

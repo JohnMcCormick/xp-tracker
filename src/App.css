@@ -11,11 +11,25 @@
 } 
 
 .summary {
+  position: fixed;
+  font-weight: bold;
   padding: 1vh;
   background-color: #1a1a1a;
   border-radius: 1vh;
-  position: relative;
+  left: 2%
 }
+
+@media screen and (max-width: 800px) {
+  .wrapper {
+    flex-direction: column;
+  }
+
+  .summary {
+    position: relative;
+    left: auto;
+  }
+}
+
 
 .challenge-group-title {
   padding: 2vh 0 .5vh;
