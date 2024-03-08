@@ -1,23 +1,22 @@
 import React from 'react'
 
-import ChallengeGroupTitle from './ChallengeGroupTitle'
-import ChallengeGroupHeader from './ChallengeGroupHeader'
-import Challenges from './Challenges'
+import Challenge from './Challenge'
 
-export default ({ challengeList, updateChallengeList }) => {
-  return challengeList?.map(({ title, challenges }, challengeGroupIndex) => {
-    return challenges && (
-      <div key={challengeGroupIndex}>
-        <ChallengeGroupTitle
-          title={title}
-        />
-        <ChallengeGroupHeader />
-        <Challenges
+export default ({challenges, challengeGroupIndex, updateChallengeGroupList}) => {
+  return (
+    <div className='challenges'>
+      {challenges.map(({ completed, pageNumber, name, points }, challengeIndex) => (
+        <Challenge
+          key={challengeIndex}
           challengeGroupIndex={challengeGroupIndex}
-          updateChallengeList={updateChallengeList}
-          challenges={challenges}
+          challengeIndex={challengeIndex}
+          completed={completed}
+          pageNumber={pageNumber}
+          name={name}
+          points={points}
+          updateChallengeGroupList={updateChallengeGroupList}
         />
-      </div>
-    )
-  })
+      ))}
+    </div>
+  )
 }

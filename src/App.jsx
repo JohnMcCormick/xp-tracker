@@ -1,38 +1,38 @@
 import { useEffect, useState } from 'react'
-import challengeData from './data/challengeData'
+import defaultState from './data/defaultState'
 import './App.css'
 
 import Summary from './components/Summary';
-import ChallengeList from './components/ChallengeList';
+import ChallengeGroupList from './components/ChallengeGroupList';
 import ResetButton from './components/ResetButton';
 
 function App() {
-  const [challengeList, setChallengeList] = useState([])
+  const [challengeGroupList, setChallengeGroupList] = useState([])
 
   useEffect(() => {
-    const localStorageChallengeList = localStorage.getItem("challenges")
+    const localStorageState = localStorage.getItem("challenges")
 
-    if (localStorageChallengeList === null) {
-      resetChallengeList();
+    if (localStorageState === null) {
+      resetToDefaultState();
     } else {
-      setChallengeList(JSON.parse(localStorageChallengeList));
+      setChallengeGroupList(JSON.parse(localStorageState));
     }
   }, [])
 
-  const resetChallengeList = () => {
-    setChallengeList(challengeData);
+  const resetToDefaultState = () => {
+    setChallengeGroupList(defaultState);
   }
 
   useEffect(() => {
-    if (challengeList?.length > 0) {
-      localStorage.setItem("challenges", JSON.stringify(challengeList));
+    if (challengeGroupList?.length > 0) {
+      localStorage.setItem("challenges", JSON.stringify(challengeGroupList));
     }
-  }, [challengeList])
+  }, [challengeGroupList])
 
   const getTotalXP = () => {
     let total = 0;
-    if (challengeList?.length > 0) {
-      challengeList?.forEach(({ challenges }) => challenges?.forEach(({ completed, points }) => {
+    if (challengeGroupList?.length > 0) {
+      challengeGroupList?.forEach(({ challenges }) => challenges?.forEach(({ completed, points }) => {
         if (completed === true) total += points;
       }));
     }
@@ -52,8 +52,8 @@ function App() {
     return currentLevel;
   }
 
-  const updateChallengeList = (_challengeGroupIndex, _challengeIndex) => {
-    setChallengeList([...challengeList].map((challengeGroup, challengeGroupIndex) => {
+  const updateChallengeGroupList = (_challengeGroupIndex, _challengeIndex) => {
+    setChallengeGroupList([...challengeGroupList].map((challengeGroup, challengeGroupIndex) => {
       if (challengeGroupIndex === _challengeGroupIndex) {
         const { title, challenges } = challengeGroup;
         const updatedChallenges = updateChallengeByIndex(challenges, _challengeIndex)
@@ -82,12 +82,12 @@ function App() {
         getTotalXP={getTotalXP}
         getCurrentLevel={getCurrentLevel}
       />
-      <ChallengeList
-        challengeList={challengeList}
-        updateChallengeList={updateChallengeList}
+      <ChallengeGroupList
+        challengeList={challengeGroupList}
+        updateChallengeGroupList={updateChallengeGroupList}
       />
       <ResetButton
-        resetChallengeList={resetChallengeList}
+        resetChallengeList={resetToDefaultState}
       />
     </div>
   )
