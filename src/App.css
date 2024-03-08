@@ -17,11 +17,17 @@
   position: relative;
 }
 
-.level-title {
+.challenge-group-title {
+  padding: 2vh 0 .5vh;
+  font-size: large;
   font-weight: bold;
 }
 
-.level, .level-title {
+.challenge-group-header {
+  font-weight: bold;
+}
+
+.challenge, .challenge-group-header {
   cursor: pointer;
   display: grid;
   text-align: left;
@@ -36,4 +42,8 @@
 
 .strikethrough {
   text-decoration: line-through;
+}
+
+.reset-button-wrapper {
+  margin: 4vh 0 0;
 }

@@ -1,0 +1,157 @@
+export default (
+    [{
+        title: "Part 1: The Basics",
+        challenges: [
+            { pageNumber: 10, name: "Knowledge Check - C#", points: 25, completed: false },
+            { pageNumber: 14, name: "Install Visual Studio", points: 75, completed: false },
+            { pageNumber: 19, name: "Hello, World!", points: 50, completed: false },
+            { pageNumber: 24, name: "What Comes Next", points: 50, completed: false },
+            { pageNumber: 24, name: "The Makings of a Programmer", points: 50, completed: false },
+            { pageNumber: 26, name: "Consolas and Telim", points: 50, completed: false },
+            { pageNumber: 31, name: "The Thing Namer 3000", points: 100, completed: false },
+            { pageNumber: 37, name: "Knowledge Check - Variables", points: 25, completed: false },
+            { pageNumber: 45, name: "The Variable Shop", points: 100, completed: false },
+            { pageNumber: 45, name: "The Variable Shop Returns", points: 50, completed: false },
+            { pageNumber: 48, name: "Knowledge Check - Type System", points: 25, completed: false },
+            { pageNumber: 53, name: "The Triangle Farmer", points: 100, completed: false },
+            { pageNumber: 56, name: "The Four Sisters and the Duckbear", points: 100, completed: false },
+            { pageNumber: 57, name: "The Dominion of Kings", points: 100, completed: false },
+            { pageNumber: 68, name: "The Defense of Consolas", points: 200, completed: false },
+            { pageNumber: 75, name: "Repairing the Clocktower", points: 100, completed: false },
+            { pageNumber: 78, name: "Watchtower", points: 100, completed: false },
+            { pageNumber: 82, name: "Buying Inventory", points: 100, completed: false },
+            { pageNumber: 83, name: "Discounted Inventory", points: 50, completed: false },
+            { pageNumber: 88, name: "The Prototype", points: 100, completed: false },
+            { pageNumber: 89, name: "The Magic Cannon", points: 100, completed: false },
+            { pageNumber: 94, name: "The Replicator of D’To", points: 100, completed: false },
+            { pageNumber: 95, name: "The Laws of Freach", points: 50, completed: false },
+            { pageNumber: 106, name: "Taking a Number", points: 100, completed: false },
+            { pageNumber: 107, name: "Countdown", points: 100, completed: false },
+            { pageNumber: 123, name: "Knowledge Check - Memory", points: 25, completed: false },
+            { pageNumber: 124, name: "Hunting the Manticore", points: 250, completed: false }
+        ]
+    },
+    {
+        title: "Part 2: Object-Oriented Programming",
+        challenges: [
+            { pageNumber: 131, name: "Knowledge Check - Objects", points: 25, completed: false },
+            { pageNumber: 135, name: "Simula’s Test", points: 100, completed: false },
+            { pageNumber: 143, name: "Simula’s Soups", points: 100, completed: false },
+            { pageNumber: 153, name: "Vin Fletcher’s Arrows", points: 100, completed: false },
+            { pageNumber: 162, name: "Vin’s Trouble", points: 50, completed: false },
+            { pageNumber: 168, name: "The Properties of Arrows", points: 100, completed: false },
+            { pageNumber: 173, name: "Arrow Factories", points: 100, completed: false },
+            { pageNumber: 191, name: "The Point", points: 75, completed: false },
+            { pageNumber: 191, name: "The Color", points: 100, completed: false },
+            { pageNumber: 191, name: "The Card", points: 100, completed: false },
+            { pageNumber: 192, name: "The Locked Door", points: 100, completed: false },
+            { pageNumber: 192, name: "The Password Validator", points: 100, completed: false },
+            { pageNumber: 193, name: "Rock-Paper-Scissors", points: 150, completed: false },
+            { pageNumber: 194, name: "15-Puzzle", points: 150, completed: false },
+            { pageNumber: 194, name: "Hangman", points: 150, completed: false },
+            { pageNumber: 195, name: "Tic-Tac-Toe", points: 300, completed: false },
+            { pageNumber: 205, name: "Packing Inventory", points: 150, completed: false },
+            { pageNumber: 209, name: "Labeling Inventory", points: 50, completed: false },
+            { pageNumber: 210, name: "The Old Robot", points: 200, completed: false },
+            { pageNumber: 217, name: "Robotic Interface", points: 75, completed: false },
+            { pageNumber: 225, name: "Room Coordinates", points: 50, completed: false },
+            { pageNumber: 231, name: "War Preparations", points: 100, completed: false },
+            { pageNumber: 240, name: "Colored Items", points: 100, completed: false },
+            { pageNumber: 242, name: "The Fountain of Objects", points: 500, completed: false },
+            { pageNumber: 244, name: "Small, Medium, or Large", points: 100, completed: false },
+            { pageNumber: 244, name: "Pits", points: 100, completed: false },
+            { pageNumber: 244, name: "Maelstroms", points: 100, completed: false },
+            { pageNumber: 245, name: "Amaroks", points: 100, completed: false },
+            { pageNumber: 245, name: "Getting Armed", points: 100, completed: false },
+            { pageNumber: 246, name: "Getting Help", points: 100, completed: false },
+            { pageNumber: 249, name: "The Robot Pilot", points: 50, completed: false },
+            { pageNumber: 251, name: "Time in the Cavern", points: 50, completed: false },
+            { pageNumber: 255, name: "Lists of Commands", points: 75, completed: false }
+        ]
+    },
+    {
+        title: "Part 3: Advanced Features",
+        challenges: [
+            { pageNumber: 269, name: "Knowledge Check - Large Programs", points: 25, completed: false },
+            { pageNumber: 270, name: "The Feud", points: 75, completed: false },
+            { pageNumber: 270, name: "Dueling Traditions", points: 100, completed: false },
+            { pageNumber: 276, name: "Safer Number Crunching", points: 50, completed: false },
+            { pageNumber: 278, name: "Knowledge Check - Methods", points: 25, completed: false },
+            { pageNumber: 278, name: "Better Random", points: 100, completed: false },
+            { pageNumber: 290, name: "Exepti’s Game", points: 100, completed: false },
+            { pageNumber: 295, name: "The Sieve", points: 100, completed: false },
+            { pageNumber: 301, name: "Knowledge Check - Events", points: 25, completed: false },
+            { pageNumber: 302, name: "Charberry Trees", points: 100, completed: false },
+            { pageNumber: 307, name: "Knowledge Check - Lambdas", points: 25, completed: false },
+            { pageNumber: 307, name: "The Lambda Sieve", points: 50, completed: false },
+            { pageNumber: 315, name: "The Long Game", points: 100, completed: false },
+            { pageNumber: 324, name: "The Potion Masters of Pattren", points: 150, completed: false },
+            { pageNumber: 331, name: "Knowledge Check - Operators", points: 25, completed: false },
+            { pageNumber: 331, name: "Navigating Operand City", points: 100, completed: false },
+            { pageNumber: 332, name: "Indexing Operand City", points: 75, completed: false },
+            { pageNumber: 332, name: "Converting Directions to Offsets", points: 50, completed: false },
+            { pageNumber: 341, name: "Knowledge Check - Queries", points: 25, completed: false },
+            { pageNumber: 342, name: "The Three Lenses", points: 100, completed: false },
+            { pageNumber: 349, name: "The Repeating Stream", points: 150, completed: false },
+            { pageNumber: 359, name: "Knowledge Check - Async", points: 25, completed: false },
+            { pageNumber: 359, name: "Asynchronous Random Words", points: 150, completed: false },
+            { pageNumber: 360, name: "Many Random Words", points: 50, completed: false },
+            { pageNumber: 365, name: "Uniter of Adds", points: 75, completed: false },
+            { pageNumber: 366, name: "The Robot Factory", points: 100, completed: false },
+            { pageNumber: 372, name: "Knowledge Check - Unsafe Code", points: 25, completed: false },
+            { pageNumber: 392, name: "Knowledge Check - Other Features", points: 25, completed: false },
+            { pageNumber: 397, name: "Colored Console", points: 100, completed: false },
+            { pageNumber: 398, name: "The Great Humanizer", points: 100, completed: false },
+            { pageNumber: 403, name: "Knowledge Check - Compiling", points: 25, completed: false },
+            { pageNumber: 408, name: "Knowledge Check - .NET", points: 25, completed: false },
+            { pageNumber: 413, name: "Altar of Publication", points: 100, completed: false }
+        ]
+    },
+    {
+        title: "Part 4: The Endgame",
+        challenges: [
+            { pageNumber: 419, name: "Core Game: Building Character", points: 300, completed: false },
+            { pageNumber: 420, name: "Core Game: The True Programmer", points: 100, completed: false },
+            { pageNumber: 420, name: "Core Game: Actions and Players", points: 300, completed: false },
+            { pageNumber: 421, name: "Core Game: Attacks", points: 200, completed: false },
+            { pageNumber: 421, name: "Core Game: Damage and HP", points: 150, completed: false },
+            { pageNumber: 422, name: "Core Game: Death", points: 150, completed: false },
+            { pageNumber: 422, name: "Core Game: Battle Series", points: 150, completed: false },
+            { pageNumber: 422, name: "Core Game: The Uncoded One", points: 100, completed: false },
+            { pageNumber: 423, name: "Core Game: The Player Decides", points: 200, completed: false },
+            { pageNumber: 423, name: "Expansion: The Game’s Status", points: 100, completed: false },
+            { pageNumber: 424, name: "Expansion: Items", points: 200, completed: false },
+            { pageNumber: 424, name: "Expansion: Gear", points: 300, completed: false },
+            { pageNumber: 425, name: "Expansion: Stolen Inventory", points: 200, completed: false },
+            { pageNumber: 426, name: "Expansion: Vin Fletcher", points: 200, completed: false },
+            { pageNumber: 426, name: "Expansion: Attack Modifiers", points: 200, completed: false },
+            { pageNumber: 426, name: "Expansion: Damage Types", points: 200, completed: false },
+            { pageNumber: 427, name: "Expansion: Making it Yours", points: 0, completed: false },
+            { pageNumber: 428, name: "Expansion: Restoring Balance", points: 150, completed: false }
+        ]
+    },
+    {
+        title: "Part 5: Bonus Levels",
+        challenges: [
+            { pageNumber: 441, name: "Knowledge Check - Visual Studio", points: 25, completed: false },
+            { pageNumber: 446, name: "Knowledge Check - Compiler Errors", points: 25, completed: false },
+            { pageNumber: 451, name: "Knowledge Check - Debugging", points: 25, completed: false },
+        ]
+    },
+    {
+        title: "C#11 Expansion",
+        challenges: [
+            { pageNumber: 4, name: "Program Making Program", points: 100, completed: false },
+            { pageNumber: 8, name: "The Map", points: 150, completed: false },
+            { pageNumber: 13, name: "Premixed Potions", points: 100, completed: false },
+            { pageNumber: 16, name: "Blast Damage", points: 100, completed: false }
+        ]
+    },
+    {
+        title: "C#12 Expansion",
+        challenges: [
+            { pageNumber: 4, name: "Hunted", points: 100, completed: false },
+            { pageNumber: 5, name: "A Night in the Wastelands", points: 100, completed: false }
+        ]
+    }]
+)

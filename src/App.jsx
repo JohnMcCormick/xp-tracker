@@ -1,37 +1,40 @@
 import { useEffect, useState } from 'react'
-import levelList from './levelList'
+import challengeData from './challengeData'
 import './App.css'
 
-import Level from './Level';
+import Challenge from './Challenge';
 import ResetButton from './ResetButton';
 
 function App() {
-  const [levels, setLevels] = useState([])
+  const [challengeList, setChallengeList] = useState([])
 
   useEffect(() => {
-    const storedLevels = localStorage.getItem("levels")
+    const localStorageChallengeList = localStorage.getItem("challenges")
 
-    if (storedLevels === null) {
-      setLevels(levelList.map(level => ({
-        ...level,
-        completed: false
-      })));
+    if (localStorageChallengeList === null) {
+      resetChallengeList();
     } else {
-      setLevels(JSON.parse(storedLevels));
+      setChallengeList(JSON.parse(localStorageChallengeList));
     }
   }, [])
 
+  const resetChallengeList = () => {
+    setChallengeList(challengeData);
+  }
+
   useEffect(() => {
-    if (levels.length > 0) {
-      localStorage.setItem("levels", JSON.stringify(levels));
+    if (challengeList?.length > 0) {
+      localStorage.setItem("challenges", JSON.stringify(challengeList));
     }
-  }, [levels])
+  }, [challengeList])
 
   const getTotalXP = () => {
     let total = 0;
-    levels.forEach(({ completed, points }) => {
-      if (completed === true) total += points;
-    })
+    if (challengeList?.length > 0) {
+      challengeList?.forEach(({ challenges }) => challenges?.forEach(({ completed, points }) => {
+        if (completed === true) total += points;
+      }));
+    }
     return total;
   }
 
@@ -48,13 +51,23 @@ function App() {
     return currentLevel;
   }
 
-  const setLevelComplete = (index) => {
-    setLevels(levels.map((level, i) => {
-      if (i === index) {
-        level.completed = !level.completed
+  const setChallengeComplete = (_challengeGroupIndex, _challengeIndex) => {
+    setChallengeList([...challengeList].map((challengeGroup, challengeGroupIndex) => {
+      if (challengeGroupIndex === _challengeGroupIndex) {
+        const { title, challenges } = challengeGroup;
+        const updatedChallenges = [...challenges].map((challenge, challengeIndex) => {
+          if (challengeIndex === _challengeIndex) {
+            challenge.completed = !challenge.completed
+          }
+          return challenge;
+        });
+        return {
+          title,
+          challenges: updatedChallenges
+        }
       }
-      return level;
-    }))
+      return challengeGroup
+    }));
   }
 
   return (
@@ -65,30 +78,40 @@ function App() {
           <div>Current Level: {getCurrentLevel()}</div>
         </div>
       </div>
-      <div className='levels'>
-        <div className='level-title'>
-          <span></span>
-          <span>Page</span>
-          <span>Name</span>
-          <span>XP</span>
-        </div>
-        {levels.map(({ completed, pageNumber, name, points }, index) => (
-          <Level
-            key={index}
-            index={index}
-            completed={completed}
-            pageNumber={pageNumber}
-            name={name}
-            points={points}
-            setLevelComplete={setLevelComplete}
-          />
-        ))}
-      </div>
       <div>
-        <ResetButton
-          levelList={levelList}
-          setLevels={setLevels}
-        />
+        {challengeList?.map(({ title, challenges }, challengeGroupIndex) => {
+          return challenges && (
+            <div key={challengeGroupIndex}>
+              <div className='challenge-group-title'>{title}</div>
+              <div className='challenge-group-header'>
+                <span></span>
+                <span>Page</span>
+                <span>Name</span>
+                <span>XP</span>
+              </div>
+              <div className='challenges'>
+                {challenges.map(({ completed, pageNumber, name, points }, challengeIndex) => (
+                  <Challenge
+                    key={challengeIndex}
+                    challengeGroupIndex={challengeGroupIndex}
+                    challengeIndex={challengeIndex}
+                    completed={completed}
+                    pageNumber={pageNumber}
+                    name={name}
+                    points={points}
+                    setChallengeComplete={setChallengeComplete}
+                  />
+                ))
+                }
+              </div>
+            </div>
+          )
+        })}
+        <div className='reset-button-wrapper'>
+          <ResetButton
+            resetChallengeList={resetChallengeList}
+          />
+        </div>
       </div>
     </div>
   )

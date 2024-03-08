@@ -1,15 +1,10 @@
 import React from 'react'
 
-export default ({ levelList, setLevels }) => {
+export default ({ resetChallengeList }) => {
   return (
     <button
       type="button"
-      onClick={() => {
-        setLevels(levelList.map(level => ({
-          ...level,
-          completed: false
-        })));
-      }}>
+      onClick={resetChallengeList}>
       Reset
     </button>
   )
