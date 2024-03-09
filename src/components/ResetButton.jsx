@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default ({ resetChallengeList }) => {
+export default ({ resetToDefaultState }) => {
   return (
     <div className='reset-button-wrapper'>
       <button
         type="button"
-        onClick={resetChallengeList}>
+        onClick={resetToDefaultState}>
         Reset
       </button>
     </div>

@@ -83,11 +83,11 @@ function App() {
         getCurrentLevel={getCurrentLevel}
       />
       <ChallengeGroupList
-        challengeList={challengeGroupList}
+        challengeGroupList={challengeGroupList}
         updateChallengeGroupList={updateChallengeGroupList}
       />
       <ResetButton
-        resetChallengeList={resetToDefaultState}
+        resetToDefaultState={resetToDefaultState}
       />
     </div>
   )
