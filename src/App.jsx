@@ -7,10 +7,11 @@ import ChallengeGroupList from './components/ChallengeGroupList';
 import ResetButton from './components/ResetButton';
 
 function App() {
-  const [challengeGroupList, setChallengeGroupList] = useState([])
+  const [challengeGroupList, setChallengeGroupList] = useState([]);
+  const [totalXP, setTotalXP] = useState(0);
 
   useEffect(() => {
-    const localStorageState = localStorage.getItem("challenges")
+    const localStorageState = localStorage.getItem("challenges");
 
     if (localStorageState === null) {
       resetToDefaultState();
@@ -26,50 +27,37 @@ function App() {
   useEffect(() => {
     if (challengeGroupList?.length > 0) {
       localStorage.setItem("challenges", JSON.stringify(challengeGroupList));
+      updateTotalXP();
     }
   }, [challengeGroupList])
 
-  const getTotalXP = () => {
+  const updateTotalXP = () => {
     let total = 0;
     if (challengeGroupList?.length > 0) {
-      challengeGroupList?.forEach(({ challenges }) => challenges?.forEach(({ completed, points }) => {
+      challengeGroupList.forEach(({ challenges }) => challenges?.forEach(({ completed, points }) => {
         if (completed === true) total += points;
       }));
     }
-    return total;
+    setTotalXP(total);
   }
 
-  const getCurrentLevel = () => {
-    let remainingXP = getTotalXP();
-    let nextLevel = 200;
-    let currentLevel = 1;
-
-    while (remainingXP >= nextLevel) {
-      remainingXP -= nextLevel;
-      nextLevel += 200;
-      currentLevel += 1;
-    }
-    return currentLevel;
-  }
-
-  const updateChallengeGroupList = (_challengeGroupIndex, _challengeIndex) => {
+  const updateChallengeGroupList = (challengeGroupIndexToChange, challengeIndexToChange) => {
     setChallengeGroupList([...challengeGroupList].map((challengeGroup, challengeGroupIndex) => {
-      if (challengeGroupIndex === _challengeGroupIndex) {
+      if (challengeGroupIndex === challengeGroupIndexToChange) {
         const { title, challenges } = challengeGroup;
-        const updatedChallenges = updateChallengeByIndex(challenges, _challengeIndex)
         return {
           title,
-          challenges: updatedChallenges
+          challenges: toggleChallengeByIndex(challenges, challengeIndexToChange)
         }
       }
-      return challengeGroup
+      return challengeGroup;
     }));
   }
 
-  const updateChallengeByIndex = (challenges, _challengeIndex) => {
+  const toggleChallengeByIndex = (challenges, challengeIndexToChange) => {
     return [...challenges].map((challenge, challengeIndex) => {
-      if (challengeIndex === _challengeIndex) {
-        challenge.completed = !challenge.completed
+      if (challengeIndex === challengeIndexToChange) {
+        challenge.completed = !challenge.completed;
       }
       return challenge;
     });
@@ -79,8 +67,7 @@ function App() {
     <div className="wrapper">
       <h1 className='main-title'>The C# Player's Guide XP Tracker</h1>
       <Summary
-        getTotalXP={getTotalXP}
-        getCurrentLevel={getCurrentLevel}
+        totalXP={totalXP}
       />
       <ChallengeGroupList
         challengeGroupList={challengeGroupList}

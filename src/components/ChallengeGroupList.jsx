@@ -2,7 +2,7 @@ import React from 'react'
 
 import ChallengeGroupTitle from './ChallengeGroupTitle'
 import ChallengeGroupHeader from './ChallengeGroupHeader'
-import ChallengeList from './ChallengeList'
+import Challenges from './Challenges'
 
 export default ({ challengeGroupList, updateChallengeGroupList }) => {
   return challengeGroupList?.map(({ title, challenges }, challengeGroupIndex) => {
@@ -12,7 +12,7 @@ export default ({ challengeGroupList, updateChallengeGroupList }) => {
           title={title}
         />
         <ChallengeGroupHeader />
-        <ChallengeList
+        <Challenges
           challengeGroupIndex={challengeGroupIndex}
           updateChallengeGroupList={updateChallengeGroupList}
           challenges={challenges}
