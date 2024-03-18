@@ -20,9 +20,9 @@
 }
 
 .summary {
-  padding: 2vh 2vw 2vw 2vw;
+  padding: 1rem;
   background-color: #1a1a1a;
-  margin: 1.5vh 2.5vh 0 2.5vh;
+  margin: 1vh 2.5vh 0 0;
   border-radius: 1vh;
 }
 
