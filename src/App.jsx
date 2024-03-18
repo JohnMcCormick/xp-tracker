@@ -12,7 +12,7 @@ function App() {
     const localStorageState = localStorage.getItem("challenges");
 
     if (localStorageState === null) {
-      return defaultState;
+      return getDefaultState();
     } else {
       return JSON.parse(localStorageState);
     }
@@ -24,6 +24,10 @@ function App() {
       updateTotalXP();
     }
   }, [challengeGroupList])
+
+  const getDefaultState = () => {
+    return JSON.parse(JSON.stringify(defaultState))
+  }
 
   const updateTotalXP = () => {
     let total = 0;
@@ -68,7 +72,9 @@ function App() {
         updateChallengeGroupList={updateChallengeGroupList}
       />
       <ResetButton
-        resetToDefaultState={() => setChallengeGroupList(defaultState)}
+        resetToDefaultState={() => {
+          setChallengeGroupList(getDefaultState())
+        }}
       />
     </div>
   )
