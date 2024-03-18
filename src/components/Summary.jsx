@@ -1,5 +1,8 @@
 import React from 'react'
 
+const CELL_XP = 25;
+const ROW_XP = 8 * CELL_XP;
+
 const getCurrentLevel = (totalXP) => {
   let remainingXP = totalXP;
   let nextLevel = 200;
@@ -15,25 +18,35 @@ const getCurrentLevel = (totalXP) => {
 
 const SummaryTable = ({ totalXP }) => {
   let remainingXP = totalXP;
+  let hasDisplayedLevel = false;
   return new Array(9).fill().map((_, levelIndex) => {
+    let displayLevel = false;
     let level = levelIndex + 1;
-    let levelXP = level * 8 * 25;
+    let levelXP = level * ROW_XP;
     let XPForLevel = remainingXP;
-    if (remainingXP >= levelXP) {
-      remainingXP -= levelXP;
-    } else {
-      remainingXP = 0;
+    if (remainingXP >= 0 && hasDisplayedLevel == false) {
+      if (remainingXP >= levelXP) {
+        remainingXP -= levelXP;
+      } else {
+        remainingXP = 0;
+        displayLevel = true;
+        hasDisplayedLevel = true;
+      }
     }
-    return <div key={levelIndex} className='xp-table-level'><SummaryLevel remainingXP={XPForLevel} rows={level} /></div>
+    return displayLevel ? (
+      <div>
+        <div key={levelIndex} className='xp-table-level'><SummaryLevel remainingXP={XPForLevel} rows={level} /></div>
+        <div className='xp-table-level-header'>Level {level}</div>
+      </div>
+    ) : null;
   })
 }
 
 const SummaryLevel = ({ rows, remainingXP }) => {
   return new Array(rows).fill().map((_, i) => {
-    let rowXP = 8 * 25;
     let XPForLevel = remainingXP;
-    if (remainingXP >= rowXP) {
-      remainingXP -= rowXP
+    if (remainingXP >= ROW_XP) {
+      remainingXP -= ROW_XP
     } else {
       remainingXP = 0
     }
@@ -56,7 +69,7 @@ export default ({ totalXP }) => {
     <div className="summary-wrapper">
       <div className='summary'>
         <div>Total XP: {totalXP}</div>
-        <div>Current Level: {currentLevel}</div>
+        <div className='summary-current-level'>Current Level: {currentLevel}</div>
         {/* <span>Additional XP: 0</span> */}
         <div className='xp-table'>
           <SummaryTable totalXP={totalXP} />

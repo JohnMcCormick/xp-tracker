@@ -12,7 +12,7 @@
 }
 
 .summary-wrapper {
-  position: absolute;
+  position: fixed;
   font-weight: bold;
   margin: 1.5vh 1.5vh 0 1.5vh;
   top: 0;
@@ -40,6 +40,10 @@
   padding-top: 1rem;
   display: flex;
   flex-direction: column-reverse;
+}
+
+.xp-table-level-header {
+  padding-top: 1rem;
 }
 
 .xp-table-cell {
@@ -78,6 +82,10 @@
   transform: rotate(-45deg);
 }
 
+.summary-current-level {
+  display: none;
+}
+
 @media (prefers-color-scheme: light) {
   .summary {
     background-color: #e9e9e9;
@@ -92,6 +100,10 @@
 
   .xp-table {
     display: none;
+  }
+
+  .summary-current-level {
+    display: block;
   }
 }
 
