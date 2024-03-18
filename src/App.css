@@ -20,10 +20,15 @@
 }
 
 .summary, .xp-table {
-  padding: 2vh;
+  padding: 2vh 2vw 1vw 2vw;
   background-color: #1a1a1a;
   margin: 1.5vh 2.5vh 0 2.5vh;
   border-radius: 1vh;
+}
+
+.xp-table-container {
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .xp-table-row {
@@ -33,6 +38,8 @@
 
 .xp-table-level {
   padding-top: 1rem;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .xp-table-cell {
@@ -44,6 +51,10 @@
   height: 1rem;
   line-height: 1.25;
   padding: 0.125rem;
+}
+
+.xp-table-cell.filled {
+  color: #363636;
 }
 
 @media (prefers-color-scheme: light) {
