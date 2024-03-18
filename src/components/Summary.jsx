@@ -46,7 +46,7 @@ const SummaryCells = ({ remainingXP }) => {
   return new Array(8).fill().map((_, i) => {
     let filled = remainingXP >= 25;
     if (filled) remainingXP -= 25;
-    return <div key={i} className={`xp-table-cell ${filled ? 'filled' : ''}`}>25</div>
+    return <div key={i} className={`xp-table-cell ${filled ? 'filled' : ''}`}><span>25</span></div>
   })
 }
 
@@ -57,10 +57,8 @@ export default ({ totalXP }) => {
       <div className='summary'>
         <div>Total XP: {totalXP}</div>
         <div>Current Level: {currentLevel}</div>
-      </div>
-      <div className='xp-table'>
-        <span>Additional XP: 0</span>
-        <div className='xp-table-container'>
+        {/* <span>Additional XP: 0</span> */}
+        <div className='xp-table'>
           <SummaryTable totalXP={totalXP} />
         </div>
       </div>
