@@ -25,7 +25,7 @@ export default ({ totalXP }) => {
       return displayLevel ? (
         <div key={levelIndex}>
           <div className='xp-table-level'><SummaryLevel remainingXP={XPForLevel} level={level} /></div>
-          <div className='xp-table-level-header'>Level {level}</div>
+          <div className='xp-table-level-header'>Current level: {level}</div>
         </div>
       ) : null;
     })

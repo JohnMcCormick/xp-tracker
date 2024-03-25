@@ -4,10 +4,12 @@ import './App.css'
 
 import Summary from './components/Summary';
 import ChallengeGroupList from './components/ChallengeGroupList';
+import ResetButton from './components/ResetButton';
 
 function App() {
   const [challengeGroupList, setChallengeGroupList] = useState([]);
   const [totalXP, setTotalXP] = useState(0);
+  const [summaryMinimized, setSummaryMinimized] = useState(false);
 
   useEffect(() => {
     const localStorageState = localStorage.getItem("challenges");
@@ -71,6 +73,10 @@ function App() {
       />
       <Summary
         totalXP={totalXP}
+        minimized={summaryMinimized}
+        setMinimized={setSummaryMinimized}
+      />
+      <ResetButton 
         resetToDefaultState={resetToDefaultState}
       />
     </div>
