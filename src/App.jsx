@@ -4,7 +4,6 @@ import './App.css'
 
 import Summary from './components/Summary';
 import ChallengeGroupList from './components/ChallengeGroupList';
-import ResetButton from './components/ResetButton';
 
 function App() {
   const [challengeGroupList, setChallengeGroupList] = useState([]);
@@ -66,14 +65,12 @@ function App() {
   return (
     <div className="wrapper">
       <h1 className='main-title'>The C# Player's Guide XP Tracker</h1>
-      <Summary
-        totalXP={totalXP}
-      />
       <ChallengeGroupList
         challengeGroupList={challengeGroupList}
         updateChallengeGroupList={updateChallengeGroupList}
       />
-      <ResetButton
+      <Summary
+        totalXP={totalXP}
         resetToDefaultState={resetToDefaultState}
       />
     </div>
