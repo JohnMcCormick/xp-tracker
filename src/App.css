@@ -24,7 +24,7 @@ main {
 .summary-wrapper {
   position: sticky;
   font-weight: bold;
-  margin: 3vh 0;
+  margin: 3vh 0 0;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -33,7 +33,6 @@ main {
 .summary {
   padding: .25rem .25rem 1rem;
   background-color: #1a1a1a;
-  /* margin: 1vh 2.5vh 0 0; */
   border-radius: 1vh;
 }
 
