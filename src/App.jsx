@@ -9,7 +9,7 @@ import ResetButton from './components/ResetButton';
 function App() {
   const [challengeGroupList, setChallengeGroupList] = useState([]);
   const [totalXP, setTotalXP] = useState(0);
-  const [summaryMinimized, setSummaryMinimized] = useState(false);
+  const [summaryMinimized, setSummaryMinimized] = useState(true);
 
   useEffect(() => {
     const localStorageState = localStorage.getItem("challenges");

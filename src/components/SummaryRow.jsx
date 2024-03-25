@@ -6,7 +6,7 @@ export default ({ remainingXP }) => {
         if (filled) remainingXP -= CELL_XP;
 
         return (
-            <div key={i} className={`xp-table-cell ${filled ? 'filled' : ''}`}>
+            <div key={i} className={`xp-table-cell${filled ? ' filled' : ''}`}>
                 <span>{CELL_XP}</span>
             </div>
         )
