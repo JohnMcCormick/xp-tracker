@@ -65,21 +65,25 @@ function App() {
   }
 
   return (
-    <div className="wrapper">
-      <h1 className='main-title'>The C# Player's Guide XP Tracker</h1>
-      <ChallengeGroupList
-        challengeGroupList={challengeGroupList}
-        updateChallengeGroupList={updateChallengeGroupList}
-      />
-      <Summary
-        totalXP={totalXP}
-        minimized={summaryMinimized}
-        setMinimized={setSummaryMinimized}
-      />
-      <ResetButton 
-        resetToDefaultState={resetToDefaultState}
-      />
-    </div>
+    <>
+      <header>
+        <h1 className='main-title'>The C# Player's Guide XP Tracker</h1>
+      </header>
+      <main>
+        <ChallengeGroupList
+          challengeGroupList={challengeGroupList}
+          updateChallengeGroupList={updateChallengeGroupList}
+        />
+        <Summary
+          totalXP={totalXP}
+          minimized={summaryMinimized}
+          setMinimized={setSummaryMinimized}
+        />
+        <ResetButton
+          resetToDefaultState={resetToDefaultState}
+        />
+      </main>
+    </>
   )
 }
 

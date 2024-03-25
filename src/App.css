@@ -1,22 +1,33 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 0;
   text-align: center;
+  width: 100%;
 }
 
-.wrapper {
+main {
   display: flex;
   min-height: 100%;
+  max-width: 900px;
   flex-direction: column;
+  margin: auto;
 }
+
+.main-title {
+  background-color: #1a1a1a;
+  padding: 3.5vh 3vh;
+  margin: 0;
+  max-width: 100%;
+}
+
 
 .summary-wrapper {
   position: sticky;
   font-weight: bold;
-  margin: 3vh 1.5vh 0;
+  margin: 3vh 0;
   bottom: 0;
   left: 0;
+  width: 100%;
 }
 
 .summary {
@@ -82,7 +93,7 @@
 }
 
 .xp-table-level-header {
-  padding-top: 1rem;
+  padding-top: .5rem;
 }
 
 .xp-table-cell {
@@ -127,7 +138,7 @@
   }
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 900px) {
   .summary-wrapper {
     margin: 3vh 0 0 0;
   }
@@ -136,12 +147,6 @@
 .summary-table {
   background-color: #1a1a1a;
   padding: 2vh;
-}
-
-.main-title {
-  /* background-color: #1a1a1a; */
-  padding: 3.5vh 3vh;
-  margin: 0;
 }
 
 .challenge-group-title {
@@ -164,6 +169,10 @@
 
 .challenge-name {
   padding: 0 1rem 0 1rem;
+}
+
+.challenge-xp {
+  text-align: right;
 }
 
 .checkbox {

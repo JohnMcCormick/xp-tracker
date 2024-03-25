@@ -9,7 +9,7 @@ export default ({ challengeGroupIndex, challengeIndex, completed, pageNumber, na
       <input className='checkbox' type='checkbox' checked={completed} onChange={() => {}}></input>
       <span>{pageNumber}</span>
       <span className={`challenge-name ${completed && 'strikethrough'}`}>{name}</span>
-      <span>{points}</span>
+      <span className='challenge-xp'>{points}</span>
     </div>
   )
 }
