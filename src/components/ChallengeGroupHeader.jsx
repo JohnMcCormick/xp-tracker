@@ -6,7 +6,7 @@ export default () => {
       <span></span>
       <span>Page</span>
       <span className='challenge-name'>Name</span>
-      <span>XP</span>
+      <span className='challenge-xp'>XP</span>
     </div>
   )
 }

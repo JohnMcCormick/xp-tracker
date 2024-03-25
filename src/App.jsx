@@ -6,8 +6,13 @@ import Summary from './components/Summary';
 import ChallengeGroupList from './components/ChallengeGroupList';
 import ResetButton from './components/ResetButton';
 
+const getDefaultState = () => {
+  return JSON.parse(JSON.stringify(defaultState))
+}
+
 function App() {
   const [totalXP, setTotalXP] = useState(0);
+  const [summaryMinimized, setSummaryMinimized] = useState(true);
   const [challengeGroupList, setChallengeGroupList] = useState(() => {
     const localStorageState = localStorage.getItem("challenges");
 
@@ -24,10 +29,6 @@ function App() {
       updateTotalXP();
     }
   }, [challengeGroupList])
-
-  const getDefaultState = () => {
-    return JSON.parse(JSON.stringify(defaultState))
-  }
 
   const updateTotalXP = () => {
     let total = 0;
@@ -62,21 +63,27 @@ function App() {
   }
 
   return (
-    <div className="wrapper">
-      <h1 className='main-title'>The C# Player's Guide XP Tracker</h1>
-      <Summary
-        totalXP={totalXP}
-      />
-      <ChallengeGroupList
-        challengeGroupList={challengeGroupList}
-        updateChallengeGroupList={updateChallengeGroupList}
-      />
-      <ResetButton
-        resetToDefaultState={() => {
+    <>
+      <header>
+        <h1 className='main-title'>The C# Player's Guide XP Tracker</h1>
+      </header>
+      <main>
+        <ChallengeGroupList
+          challengeGroupList={challengeGroupList}
+          updateChallengeGroupList={updateChallengeGroupList}
+        />
+        <Summary
+          totalXP={totalXP}
+          minimized={summaryMinimized}
+          setMinimized={setSummaryMinimized}
+        />
+        <ResetButton
+          resetToDefaultState={() => {
           setChallengeGroupList(getDefaultState())
         }}
-      />
-    </div>
+        />
+      </main>
+    </>
   )
 }
 
