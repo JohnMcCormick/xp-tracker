@@ -7,23 +7,17 @@ import ChallengeGroupList from './components/ChallengeGroupList';
 import ResetButton from './components/ResetButton';
 
 function App() {
-  const [challengeGroupList, setChallengeGroupList] = useState([]);
   const [totalXP, setTotalXP] = useState(0);
   const [summaryMinimized, setSummaryMinimized] = useState(true);
-
-  useEffect(() => {
+  const [challengeGroupList, setChallengeGroupList] = useState(() => {
     const localStorageState = localStorage.getItem("challenges");
 
     if (localStorageState === null) {
-      resetToDefaultState();
+      return getDefaultState();
     } else {
-      setChallengeGroupList(JSON.parse(localStorageState));
+      return JSON.parse(localStorageState);
     }
-  }, [])
-
-  const resetToDefaultState = () => {
-    setChallengeGroupList(defaultState);
-  }
+  });
 
   useEffect(() => {
     if (challengeGroupList?.length > 0) {
@@ -31,6 +25,10 @@ function App() {
       updateTotalXP();
     }
   }, [challengeGroupList])
+
+  const getDefaultState = () => {
+    return JSON.parse(JSON.stringify(defaultState))
+  }
 
   const updateTotalXP = () => {
     let total = 0;
@@ -80,7 +78,9 @@ function App() {
           setMinimized={setSummaryMinimized}
         />
         <ResetButton
-          resetToDefaultState={resetToDefaultState}
+          resetToDefaultState={() => {
+          setChallengeGroupList(getDefaultState())
+        }}
         />
       </main>
     </>
