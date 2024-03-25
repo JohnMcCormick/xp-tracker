@@ -6,6 +6,10 @@ import Summary from './components/Summary';
 import ChallengeGroupList from './components/ChallengeGroupList';
 import ResetButton from './components/ResetButton';
 
+const getDefaultState = () => {
+  return JSON.parse(JSON.stringify(defaultState))
+}
+
 function App() {
   const [totalXP, setTotalXP] = useState(0);
   const [summaryMinimized, setSummaryMinimized] = useState(true);
@@ -25,10 +29,6 @@ function App() {
       updateTotalXP();
     }
   }, [challengeGroupList])
-
-  const getDefaultState = () => {
-    return JSON.parse(JSON.stringify(defaultState))
-  }
 
   const updateTotalXP = () => {
     let total = 0;
