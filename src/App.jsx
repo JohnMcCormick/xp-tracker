@@ -11,7 +11,6 @@ const getDefaultState = () => {
 }
 
 function App() {
-  const [totalXP, setTotalXP] = useState(0);
   const [summaryMinimized, setSummaryMinimized] = useState(true);
   const [challengeGroupList, setChallengeGroupList] = useState(() => {
     const localStorageState = localStorage.getItem("challenges");
@@ -26,19 +25,18 @@ function App() {
   useEffect(() => {
     if (challengeGroupList?.length > 0) {
       localStorage.setItem("challenges", JSON.stringify(challengeGroupList));
-      updateTotalXP();
     }
   }, [challengeGroupList])
 
-  const updateTotalXP = () => {
+  const getTotalXP = () => {
     let total = 0;
     if (challengeGroupList?.length > 0) {
       challengeGroupList.forEach(({ challenges }) => challenges?.forEach(({ completed, points }) => {
         if (completed === true) total += points;
       }));
     }
-    setTotalXP(total);
-  }
+    return total;
+  };
 
   const updateChallengeGroupList = (challengeGroupIndexToChange, challengeIndexToChange) => {
     setChallengeGroupList([...challengeGroupList].map((challengeGroup, challengeGroupIndex) => {
@@ -73,7 +71,7 @@ function App() {
           updateChallengeGroupList={updateChallengeGroupList}
         />
         <Summary
-          totalXP={totalXP}
+          totalXP={getTotalXP()}
           minimized={summaryMinimized}
           setMinimized={setSummaryMinimized}
         />
