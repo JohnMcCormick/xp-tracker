@@ -131,12 +131,6 @@ main {
   transform: rotate(-45deg);
 }
 
-@media (prefers-color-scheme: light) {
-  .summary {
-    background-color: #e9e9e9;
-  }
-}
-
 @media screen and (max-width: 900px) {
   .summary-wrapper {
     margin: 3vh 0 0 0;
